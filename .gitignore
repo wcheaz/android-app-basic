@@ -1,47 +1,71 @@
-*.iml
-.gradle
-/local.properties
-/.idea
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
-local.properties
-
+# Built application files
 *.apk
 *.aab
 *.ap_
 *.dex
 
+# Java/Kotlin compiled
 *.class
+
+# Package files
 *.jar
 *.war
 *.ear
+*.gz
+*.zip
 
-bin/
-gen/
-out/
-
-navigation.json
-
+# Gradle files
 .gradle/
 build/
+*/build/
 
+# Local configuration
+local.properties
+
+# IntelliJ / Android Studio
 .idea/
 *.iml
 *.iws
 *.ipr
+out/
+.navigation/
+captures/
 
+# Android
+*.hprof
+.externalNativeBuild/
+.cxx/
+bin/
+gen/
+obj/
+lint/
+
+# Kotlin
 .kotlin/
 
-*.log
+# Keystore files (keep debug.keystore if needed)
 *.keystore
 *.jks
 !debug.keystore
 
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Environment / secrets
 .env
 .env.*
 
+# Editor directories
+.vscode/
+
+# Project-specific
 .kilocode/
 .agent/
+hidden/
