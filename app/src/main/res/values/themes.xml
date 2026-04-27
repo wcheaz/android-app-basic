@@ -21,4 +21,17 @@
         <item name="android:navigationBarColor">@color/true_black</item>
         <item name="android:textColor">@color/pure_white</item>
     </style>
+
+    <style name="Theme.BasicApp.Terminal" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/phosphor_green</item>
+        <item name="colorPrimaryVariant">@color/phosphor_dim</item>
+        <item name="colorOnPrimary">@color/terminal_bg</item>
+        <item name="colorSecondary">@color/phosphor_amber</item>
+        <item name="colorSecondaryVariant">@color/green_muted</item>
+        <item name="colorOnSecondary">@color/terminal_bg</item>
+        <item name="android:windowBackground">@color/terminal_bg</item>
+        <item name="android:statusBarColor">@color/terminal_bg</item>
+        <item name="android:navigationBarColor">@color/terminal_bg</item>
+        <item name="android:textColor">@color/phosphor_green</item>
+    </style>
 </resources>

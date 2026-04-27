@@ -34,7 +34,7 @@ Do not proceed to Phase 2 tasks until a human has verified the Phase 1 end-to-en
 
 ## 2. Phase 2 — Terminal / Phosphor theme
 
-- [ ] 2.1 Add Terminal / Phosphor color resources to `colors.xml`: `terminal_bg` (#FF0A0E0A), `terminal_surface` (#FF111A11), `phosphor_green` (#FF33FF33), `phosphor_dim` (#FF1A7A1A), `phosphor_ghost` (#FF0D4D0D), `phosphor_bright` (#FF88FF88), `phosphor_amber` (#FFB000), `green_muted` (#FF4D804D), `button_bg` (#FF0D1A0D), `button_border` (#FF1A3D1A). Add `Theme.BasicApp.Terminal` style to `themes.xml` inheriting from `Theme.MaterialComponents.DayNight.NoActionBar` with all attributes per the Terminal spec.
+- [x] 2.1 Add Terminal / Phosphor color resources to `colors.xml`: `terminal_bg` (#FF0A0E0A), `terminal_surface` (#FF111A11), `phosphor_green` (#FF33FF33), `phosphor_dim` (#FF1A7A1A), `phosphor_ghost` (#FF0D4D0D), `phosphor_bright` (#FF88FF88), `phosphor_amber` (#FFB000), `green_muted` (#FF4D804D), `button_bg` (#FF0D1A0D), `button_border` (#FF1A3D1A). Add `Theme.BasicApp.Terminal` style to `themes.xml` inheriting from `Theme.MaterialComponents.DayNight.NoActionBar` with all attributes per the Terminal spec.
   Done when: `colors.xml` has all 10 Terminal colors and `themes.xml` has `Theme.BasicApp.Terminal` style; `./gradlew assembleDebug` succeeds.
 
 - [ ] 2.2 Create `res/drawable/scanlines.xml` — a gradient shape overlay per the Terminal THEME document.
