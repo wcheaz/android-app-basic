@@ -15,6 +15,7 @@ class GrowthActivity : AppCompatActivity() {
         private const val KEY_VALUE = "growth_value"
         private const val KEY_EXPONENT = "growth_exponent"
         private const val KEY_RATE_INDEX = "growth_rate_index"
+        private const val KEY_THEME = "selected_theme"
         private const val INITIAL_VALUE = 100_000_000L
         private const val INITIAL_EXPONENT = 16
         private const val DEFAULT_RATE_INDEX = 2
@@ -34,6 +35,7 @@ class GrowthActivity : AppCompatActivity() {
     private var value = INITIAL_VALUE
     private var exponent = INITIAL_EXPONENT
     private var rateIndex = DEFAULT_RATE_INDEX
+    private var selectedTheme = "default"
     private var tickCount = 0
     private lateinit var numberDisplay: TextView
     private lateinit var rateLabel: TextView
@@ -56,6 +58,8 @@ class GrowthActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        loadState()
+        setTheme(themeKeyToStyleRes(selectedTheme))
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_growth)
         supportActionBar?.hide()
@@ -64,8 +68,6 @@ class GrowthActivity : AppCompatActivity() {
         rateLabel = findViewById(R.id.rateLabel)
         btnSlower = findViewById(R.id.btnSlower)
         btnFaster = findViewById(R.id.btnFaster)
-
-        loadState()
 
         btnSlower.setOnClickListener {
             if (rateIndex > 0) {
@@ -109,6 +111,7 @@ class GrowthActivity : AppCompatActivity() {
         value = p.getLong(KEY_VALUE, INITIAL_VALUE)
         exponent = p.getInt(KEY_EXPONENT, INITIAL_EXPONENT)
         rateIndex = p.getInt(KEY_RATE_INDEX, DEFAULT_RATE_INDEX).coerceIn(0, RATES.lastIndex)
+        selectedTheme = p.getString(KEY_THEME, "default") ?: "default"
     }
 
     private fun saveState() {
@@ -116,7 +119,14 @@ class GrowthActivity : AppCompatActivity() {
             .putLong(KEY_VALUE, value)
             .putInt(KEY_EXPONENT, exponent)
             .putInt(KEY_RATE_INDEX, rateIndex)
+            .putString(KEY_THEME, selectedTheme)
             .apply()
+    }
+
+    private fun themeKeyToStyleRes(key: String): Int = when (key) {
+        "default" -> R.style.Theme_BasicApp
+        "minimalist_noir" -> R.style.Theme_BasicApp_Noir
+        else -> R.style.Theme_BasicApp
     }
 
     private fun formatNumber(v: Long, exp: Int): String {
