@@ -57,7 +57,7 @@ Do not proceed to Phase 2 tasks until a human has verified the Phase 1 end-to-en
 - [x] 3.3 Update `themeKeyToStyleRes` so `"abyssal_ocean"` maps to `R.style.Theme_BasicApp_Ocean`.
   Done when: selecting "Abyssal Ocean" from the spinner applies a deep blue-black background with cyan primary and coral accent; `./gradlew assembleDebug` succeeds.
 
-- [ ] 3.4 Add Ocean runtime effect: floating bioluminescent particles. When Ocean theme is active, create 15 small `View` particles (2–6dp, using `biolum_orb` drawable with `fern_green` tint for Ocean) that drift upward with random alpha and duration (8–20 seconds), recycling when they exit the top. Guard with `selectedTheme == "abyssal_ocean"`. Remove all particle views from their parent in `onPause()` or on theme switch.
+- [x] 3.4 Add Ocean runtime effect: floating bioluminescent particles. When Ocean theme is active, create 15 small `View` particles (2–6dp, using `biolum_orb` drawable with `fern_green` tint for Ocean) that drift upward with random alpha and duration (8–20 seconds), recycling when they exit the top. Guard with `selectedTheme == "abyssal_ocean"`. Remove all particle views from their parent in `onPause()` or on theme switch.
   Done when: selecting Ocean theme shows faint glowing particles drifting upward; switching away removes all particle views from the layout; no particle views remain under any other theme; `./gradlew assembleDebug` succeeds.
 
 ## 4. Phase 2 — Solar Flare theme

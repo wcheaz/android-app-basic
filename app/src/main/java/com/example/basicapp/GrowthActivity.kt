@@ -48,6 +48,8 @@ class GrowthActivity : AppCompatActivity() {
     private lateinit var btnFaster: Button
     private val handler = Handler(Looper.getMainLooper())
     private var glowAnimator: android.animation.ValueAnimator? = null
+    private val particleViews = mutableListOf<android.view.View>()
+    private val particleAnimators = mutableListOf<android.animation.ValueAnimator>()
 
     private val tick = object : Runnable {
         override fun run() {
@@ -98,6 +100,10 @@ class GrowthActivity : AppCompatActivity() {
             startTerminalGlow()
         }
 
+        if (selectedTheme == "abyssal_ocean") {
+            startOceanParticles()
+        }
+
         val themeSpinner: Spinner = findViewById(R.id.themeSpinner)
         val themeNames = resources.getStringArray(R.array.theme_names)
         val themeKeys = resources.getStringArray(R.array.theme_keys)
@@ -131,6 +137,7 @@ class GrowthActivity : AppCompatActivity() {
         handler.removeCallbacks(tick)
         glowAnimator?.cancel()
         glowAnimator = null
+        cleanupParticles()
         saveState()
     }
 
@@ -179,6 +186,70 @@ class GrowthActivity : AppCompatActivity() {
             }
             start()
         }
+    }
+
+    private fun startOceanParticles() {
+        val content = findViewById<android.view.ViewGroup>(android.R.id.content)
+        val density = resources.displayMetrics.density
+        val screenWidth = resources.displayMetrics.widthPixels
+        val screenHeight = resources.displayMetrics.heightPixels
+        val random = java.util.Random()
+
+        for (i in 0 until 15) {
+            val particle = android.view.View(this)
+            val sizeDp = 2 + random.nextInt(5)
+            val sizePx = (sizeDp * density).toInt()
+            particle.layoutParams = android.view.ViewGroup.LayoutParams(sizePx, sizePx)
+            particle.background = ContextCompat.getDrawable(this, R.drawable.biolum_orb)
+            particle.alpha = 0.2f + random.nextFloat() * 0.5f
+            val w = (screenWidth - sizePx).coerceAtLeast(1)
+            particle.x = random.nextInt(w).toFloat()
+            particle.y = random.nextInt(screenHeight).toFloat()
+            content.addView(particle)
+            particleViews.add(particle)
+            animateParticleUp(particle, screenHeight, screenWidth, random)
+        }
+    }
+
+    private fun animateParticleUp(
+        particle: android.view.View,
+        screenHeight: Int,
+        screenWidth: Int,
+        random: java.util.Random
+    ) {
+        val durationMs = 8000L + random.nextInt(12001)
+        val startY = particle.y
+        val endY = -particle.height.toFloat()
+        val animator = android.animation.ValueAnimator.ofFloat(startY, endY)
+        animator.duration = durationMs
+        animator.interpolator = android.view.animation.LinearInterpolator()
+        animator.addUpdateListener { anim ->
+            particle.y = anim.animatedValue as Float
+        }
+        animator.addListener(object : android.animation.AnimatorListenerAdapter() {
+            override fun onAnimationEnd(animation: android.animation.Animator) {
+                if (particle.parent == null) return
+                val w = (screenWidth - particle.width).coerceAtLeast(1)
+                particle.x = random.nextInt(w).toFloat()
+                particle.y = screenHeight.toFloat()
+                particle.alpha = 0.2f + random.nextFloat() * 0.5f
+                animateParticleUp(particle, screenHeight, screenWidth, random)
+            }
+        })
+        animator.start()
+        particleAnimators.add(animator)
+    }
+
+    private fun cleanupParticles() {
+        for (animator in particleAnimators) {
+            animator.removeAllListeners()
+            animator.cancel()
+        }
+        particleAnimators.clear()
+        for (view in particleViews) {
+            (view.parent as? android.view.ViewGroup)?.removeView(view)
+        }
+        particleViews.clear()
     }
 
     private fun formatNumber(v: Long, exp: Int): String {
