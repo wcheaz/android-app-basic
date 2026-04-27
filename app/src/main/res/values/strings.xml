@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">Basic App</string>
+
+    <string-array name="theme_names">
+        <item>Default</item>
+        <item>Minimalist Noir</item>
+        <item>Terminal / Phosphor</item>
+        <item>Abyssal Ocean</item>
+        <item>Solar Flare</item>
+        <item>Cosmic Nebula</item>
+        <item>Emerald Growth</item>
+    </string-array>
+    <string-array name="theme_keys">
+        <item>default</item>
+        <item>minimalist_noir</item>
+        <item>terminal_phosphor</item>
+        <item>abyssal_ocean</item>
+        <item>solar_flare</item>
+        <item>cosmic_nebula</item>
+        <item>emerald_growth</item>
+    </string-array>
 </resources>

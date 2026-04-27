@@ -9,7 +9,7 @@
 - [x] 1.3 Create `res/drawable/hairline_top.xml` — a layer-list drawable with a 1dp top border in `@color/hairline`, per the Minimalist Noir THEME document.
   Done when: `res/drawable/hairline_top.xml` exists, references `@color/hairline`, and `./gradlew assembleDebug` succeeds.
 
-- [ ] 1.4 Add string array resources to `strings.xml` (or a new `arrays.xml`): `theme_names` with 7 items (Default, Minimalist Noir, Terminal / Phosphor, Abyssal Ocean, Solar Flare, Cosmic Nebula, Emerald Growth) and `theme_keys` with 7 matching items (default, minimalist_noir, terminal_phosphor, abyssal_ocean, solar_flare, cosmic_nebula, emerald_growth). Both arrays MUST have the same length and same order.
+- [x] 1.4 Add string array resources to `strings.xml` (or a new `arrays.xml`): `theme_names` with 7 items (Default, Minimalist Noir, Terminal / Phosphor, Abyssal Ocean, Solar Flare, Cosmic Nebula, Emerald Growth) and `theme_keys` with 7 matching items (default, minimalist_noir, terminal_phosphor, abyssal_ocean, solar_flare, cosmic_nebula, emerald_growth). Both arrays MUST have the same length and same order.
   Done when: `R.array.theme_names` and `R.array.theme_keys` both resolve, have length 7, and items at each index correspond; `./gradlew assembleDebug` succeeds.
 
 - [ ] 1.5 Add `themeSpinner` Spinner to `activity_growth.xml` between `growthNumber` and `rateControls`. Update the ConstraintLayout chain so `growthNumber` bottom constrains to `themeSpinner` top, `themeSpinner` top/bottom constrains between `growthNumber` bottom and `rateControls` top, and `themeSpinner` spans full width with `0dp` width constrained to parent start/end. Use `style="@style/Widget.MaterialComponents.Spinner.Underlined"` and `android:backgroundTint="?attr/colorPrimary"`.
