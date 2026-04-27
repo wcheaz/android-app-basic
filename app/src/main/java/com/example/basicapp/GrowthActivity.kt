@@ -4,12 +4,14 @@ import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 
 class GrowthActivity : AppCompatActivity() {
 
@@ -45,6 +47,7 @@ class GrowthActivity : AppCompatActivity() {
     private lateinit var btnSlower: Button
     private lateinit var btnFaster: Button
     private val handler = Handler(Looper.getMainLooper())
+    private var glowAnimator: android.animation.ValueAnimator? = null
 
     private val tick = object : Runnable {
         override fun run() {
@@ -91,6 +94,10 @@ class GrowthActivity : AppCompatActivity() {
         updateRateControls()
         numberDisplay.text = formatNumber(value, exponent)
 
+        if (selectedTheme == "terminal_phosphor") {
+            startTerminalGlow()
+        }
+
         val themeSpinner: Spinner = findViewById(R.id.themeSpinner)
         val themeNames = resources.getStringArray(R.array.theme_names)
         val themeKeys = resources.getStringArray(R.array.theme_keys)
@@ -122,6 +129,8 @@ class GrowthActivity : AppCompatActivity() {
     override fun onPause() {
         super.onPause()
         handler.removeCallbacks(tick)
+        glowAnimator?.cancel()
+        glowAnimator = null
         saveState()
     }
 
@@ -153,6 +162,22 @@ class GrowthActivity : AppCompatActivity() {
         "minimalist_noir" -> R.style.Theme_BasicApp_Noir
         "terminal_phosphor" -> R.style.Theme_BasicApp_Terminal
         else -> R.style.Theme_BasicApp
+    }
+
+    private fun startTerminalGlow() {
+        val greenColor = ContextCompat.getColor(this, R.color.phosphor_green)
+        numberDisplay.setShadowLayer(4f, 0f, 0f, greenColor)
+        glowAnimator = android.animation.ValueAnimator.ofFloat(4f, 16f).apply {
+            duration = 2000L
+            interpolator = AccelerateDecelerateInterpolator()
+            repeatCount = android.animation.ValueAnimator.INFINITE
+            repeatMode = android.animation.ValueAnimator.REVERSE
+            addUpdateListener { anim ->
+                val radius = anim.animatedValue as Float
+                numberDisplay.setShadowLayer(radius, 0f, 0f, greenColor)
+            }
+            start()
+        }
     }
 
     private fun formatNumber(v: Long, exp: Int): String {

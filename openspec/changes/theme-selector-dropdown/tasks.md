@@ -43,7 +43,7 @@ Do not proceed to Phase 2 tasks until a human has verified the Phase 1 end-to-en
 - [x] 2.3 Update `themeKeyToStyleRes` in `GrowthActivity.kt` so `"terminal_phosphor"` maps to `R.style.Theme_BasicApp_Terminal` instead of the Default fallback.
   Done when: selecting "Terminal / Phosphor" from the spinner applies a dark green-tinted background with phosphor green text and amber accent; `./gradlew assembleDebug` succeeds.
 
-- [ ] 2.4 Add Terminal runtime effect: pulsing glow on the growth number. When Terminal theme is active, animate the `growthNumber` shadow radius between 4f and 16f over 2 seconds using `ValueAnimator` with `AccelerateDecelerateInterpolator` and `INFINITE` repeat. Store the animator as a field so it can be cancelled. Guard the effect: only start if `selectedTheme == "terminal_phosphor"`. Cancel any running animator in `onPause()`.
+- [x] 2.4 Add Terminal runtime effect: pulsing glow on the growth number. When Terminal theme is active, animate the `growthNumber` shadow radius between 4f and 16f over 2 seconds using `ValueAnimator` with `AccelerateDecelerateInterpolator` and `INFINITE` repeat. Store the animator as a field so it can be cancelled. Guard the effect: only start if `selectedTheme == "terminal_phosphor"`. Cancel any running animator in `onPause()`.
   Done when: selecting Terminal theme shows a continuously pulsing green glow on the growth number; switching away from Terminal stops the animator; the glow does not appear under any other theme; `./gradlew assembleDebug` succeeds.
 
 ## 3. Phase 2 — Abyssal Ocean theme
