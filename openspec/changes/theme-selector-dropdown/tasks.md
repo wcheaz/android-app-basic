@@ -79,7 +79,7 @@ Do not proceed to Phase 2 tasks until a human has verified the Phase 1 end-to-en
 - [x] 5.1 Add Cosmic Nebula color resources to `colors.xml`: `deep_space` (#FF0A0612), `nebula_dark` (#FF160D24), `cosmos_surface` (#FF1E1030), `nebula_violet` (#FFB388FF), `starlight` (#FFE1BEE7), `stellar_white` (#FFF3E5F5), `void_purple` (#FF7C4DFF), `nebula_rose` (#FFFF80AB), `plasma_blue` (#FF448AFF), `dust_light` (#FFD1C4E9), `dust_dim` (#FF6A5B7A), `button_cosmos` (#FF120A1E), `star_pinpoint` (#FFFFFFFF). Add `Theme.BasicApp.Nebula` style to `themes.xml` per the Nebula spec.
   Done when: `colors.xml` has all 13 Nebula colors and `themes.xml` has `Theme.BasicApp.Nebula` style; `./gradlew assembleDebug` succeeds.
 
-- [ ] 5.2 Create `res/drawable/bg_nebula.xml` (radial gradient per the Nebula THEME document) and `res/drawable/star_dot.xml` (2dp white circle oval per the Nebula THEME document).
+- [x] 5.2 Create `res/drawable/bg_nebula.xml` (radial gradient per the Nebula THEME document) and `res/drawable/star_dot.xml` (2dp white circle oval per the Nebula THEME document).
   Done when: both drawable XML files exist in `res/drawable/` and `./gradlew assembleDebug` succeeds.
 
 - [ ] 5.3 Update `themeKeyToStyleRes` so `"cosmic_nebula"` maps to `R.style.Theme_BasicApp_Nebula`.
