@@ -10,17 +10,13 @@
         android:theme="@style/Theme.BasicApp">
 
         <activity
-            android:name=".MainActivity"
+            android:name=".GrowthActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".CircleActivity"
-            android:exported="false" />
 
     </application>
 
