@@ -59,6 +59,9 @@ class GrowthActivity : AppCompatActivity() {
                 exponent -= 3
             }
             numberDisplay.text = formatNumber(value, exponent)
+            if (selectedTheme == "solar_flare") {
+                updateSolarIntensity()
+            }
             tickCount++
             if (tickCount % SAVE_INTERVAL == 0) saveState()
             handler.postDelayed(this, TICK_MS)
@@ -104,6 +107,10 @@ class GrowthActivity : AppCompatActivity() {
             startOceanParticles()
         }
 
+        if (selectedTheme == "solar_flare") {
+            updateSolarIntensity()
+        }
+
         val themeSpinner: Spinner = findViewById(R.id.themeSpinner)
         val themeNames = resources.getStringArray(R.array.theme_names)
         val themeKeys = resources.getStringArray(R.array.theme_keys)
@@ -138,6 +145,7 @@ class GrowthActivity : AppCompatActivity() {
         glowAnimator?.cancel()
         glowAnimator = null
         cleanupParticles()
+        numberDisplay.setShadowLayer(0f, 0f, 0f, 0)
         saveState()
     }
 
@@ -251,6 +259,23 @@ class GrowthActivity : AppCompatActivity() {
             (view.parent as? android.view.ViewGroup)?.removeView(view)
         }
         particleViews.clear()
+    }
+
+    private fun updateSolarIntensity() {
+        val progress = ((exponent + 8).toFloat() / 24f).coerceIn(0f, 1f)
+        val color: Int
+        val radius: Float
+        if (progress < 0.4f) {
+            color = ContextCompat.getColor(this, R.color.ember_glow)
+            radius = 8f
+        } else if (progress < 0.7f) {
+            color = ContextCompat.getColor(this, R.color.solar_orange)
+            radius = 8f + progress * 32f
+        } else {
+            color = ContextCompat.getColor(this, R.color.magma_red)
+            radius = 8f + progress * 32f
+        }
+        numberDisplay.setShadowLayer(radius, 0f, 0f, color)
     }
 
     private fun formatNumber(v: Long, exp: Int): String {

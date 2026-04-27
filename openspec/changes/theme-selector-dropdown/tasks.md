@@ -71,7 +71,7 @@ Do not proceed to Phase 2 tasks until a human has verified the Phase 1 end-to-en
 - [x] 4.3 Update `themeKeyToStyleRes` so `"solar_flare"` maps to `R.style.Theme_BasicApp_Solar`.
   Done when: selecting "Solar Flare" from the spinner applies a warm black background with solar orange primary and near-white flare text; `./gradlew assembleDebug` succeeds.
 
-- [ ] 4.4 Add Solar runtime effect: intensity ramp. When Solar theme is active, modify `growthNumber` shadow radius and shadow color based on the current exponent. Map the exponent range [-8, 16] to a 0–1 progress value. Below 0.4 progress use `ember_glow` color and 8f base radius; 0.4–0.7 use `solar_orange` with 8f + progress*32f radius; above 0.7 use `magma_red` with the same formula. Guard with `selectedTheme == "solar_flare"`. Update on each tick. Reset shadow when switching away from Solar theme.
+- [x] 4.4 Add Solar runtime effect: intensity ramp. When Solar theme is active, modify `growthNumber` shadow radius and shadow color based on the current exponent. Map the exponent range [-8, 16] to a 0–1 progress value. Below 0.4 progress use `ember_glow` color and 8f base radius; 0.4–0.7 use `solar_orange` with 8f + progress*32f radius; above 0.7 use `magma_red` with the same formula. Guard with `selectedTheme == "solar_flare"`. Update on each tick. Reset shadow when switching away from Solar theme.
   Done when: selecting Solar theme shows an orange glow on the growth number that intensifies as the value grows; shadow radius increases with exponent; color shifts from ember_glow → solar_orange → magma_red; switching away resets the shadow to default; `./gradlew assembleDebug` succeeds.
 
 ## 5. Phase 2 — Cosmic Nebula theme
