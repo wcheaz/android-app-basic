@@ -65,7 +65,7 @@ Do not proceed to Phase 2 tasks until a human has verified the Phase 1 end-to-en
 - [x] 4.1 Add Solar Flare color resources to `colors.xml`: `void_black` (#FF080604), `ember_surface` (#FF1A120A), `ember_light` (#FF2D1F10), `solar_orange` (#FFFF8F00), `flare_yellow` (#FFFFD54F), `flare_white` (#FFFFF8E1), `ember_glow` (#FFBF6000), `magma_red` (#FFFF3D00), `heat_haze` (#FFFFCC80), `ash_gray` (#FF8D7B6A), `button_ember` (#FF1A1005), `button_flare` (#FF3D2200). Add `Theme.BasicApp.Solar` style to `themes.xml` per the Solar spec.
   Done when: `colors.xml` has all 12 Solar colors and `themes.xml` has `Theme.BasicApp.Solar` style; `./gradlew assembleDebug` succeeds.
 
-- [ ] 4.2 Create `res/drawable/bg_solar_gradient.xml` — a radial gradient from `ember_surface` at center through `#0D0906` to `void_black` at edges, gradientRadius 400dp, per the Solar THEME document.
+- [x] 4.2 Create `res/drawable/bg_solar_gradient.xml` — a radial gradient from `ember_surface` at center through `#0D0906` to `void_black` at edges, gradientRadius 400dp, per the Solar THEME document.
   Done when: `res/drawable/bg_solar_gradient.xml` exists and `./gradlew assembleDebug` succeeds.
 
 - [ ] 4.3 Update `themeKeyToStyleRes` so `"solar_flare"` maps to `R.style.Theme_BasicApp_Solar`.
