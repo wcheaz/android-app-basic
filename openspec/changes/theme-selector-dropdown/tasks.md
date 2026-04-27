@@ -54,7 +54,7 @@ Do not proceed to Phase 2 tasks until a human has verified the Phase 1 end-to-en
 - [x] 3.2 Create `res/drawable/biolum_orb.xml` (radial gradient oval per the Ocean THEME document) and `res/drawable/separator_line_top.xml` (1dp top border line using `biolum_muted`).
   Done when: both drawable XML files exist in `res/drawable/` and `./gradlew assembleDebug` succeeds.
 
-- [ ] 3.3 Update `themeKeyToStyleRes` so `"abyssal_ocean"` maps to `R.style.Theme_BasicApp_Ocean`.
+- [x] 3.3 Update `themeKeyToStyleRes` so `"abyssal_ocean"` maps to `R.style.Theme_BasicApp_Ocean`.
   Done when: selecting "Abyssal Ocean" from the spinner applies a deep blue-black background with cyan primary and coral accent; `./gradlew assembleDebug` succeeds.
 
 - [ ] 3.4 Add Ocean runtime effect: floating bioluminescent particles. When Ocean theme is active, create 15 small `View` particles (2–6dp, using `biolum_orb` drawable with `fern_green` tint for Ocean) that drift upward with random alpha and duration (8–20 seconds), recycling when they exit the top. Guard with `selectedTheme == "abyssal_ocean"`. Remove all particle views from their parent in `onPause()` or on theme switch.
