@@ -1,14 +1,22 @@
 package com.example.basicapp
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.style.ForegroundColorSpan
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.AdapterView
-import android.widget.ArrayAdapter
+import android.widget.BaseAdapter
 import android.widget.Button
 import android.widget.Spinner
+import android.widget.SpinnerAdapter
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -128,9 +136,9 @@ class GrowthActivity : AppCompatActivity() {
         val themeSpinner: Spinner = findViewById(R.id.themeSpinner)
         val themeNames = resources.getStringArray(R.array.theme_names)
         val themeKeys = resources.getStringArray(R.array.theme_keys)
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, themeNames)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        themeSpinner.adapter = adapter
+        themeSpinner.adapter = ThemeSpinnerAdapter(
+            this, themeNames, getThemedTextColor()
+        )
         val currentKeyIndex = themeKeys.indexOf(selectedTheme)
         if (currentKeyIndex >= 0) {
             themeSpinner.setSelection(currentKeyIndex)
@@ -196,6 +204,54 @@ class GrowthActivity : AppCompatActivity() {
         "cosmic_nebula" -> R.style.Theme_BasicApp_Nebula
         "emerald_growth" -> R.style.Theme_BasicApp_Emerald
         else -> R.style.Theme_BasicApp
+    }
+
+    private fun getThemedTextColor(): Int = when (selectedTheme) {
+        "minimalist_noir" -> ContextCompat.getColor(this, R.color.pure_white)
+        "terminal_phosphor" -> ContextCompat.getColor(this, R.color.phosphor_green)
+        "abyssal_ocean" -> ContextCompat.getColor(this, R.color.surface_light)
+        "solar_flare" -> ContextCompat.getColor(this, R.color.heat_haze)
+        "cosmic_nebula" -> ContextCompat.getColor(this, R.color.dust_light)
+        "emerald_growth" -> ContextCompat.getColor(this, R.color.dew_light)
+        else -> Color.BLACK
+    }
+
+    private class ThemeSpinnerAdapter(
+        private val context: Context,
+        private val items: Array<String>,
+        private val selectedItemColor: Int
+    ) : BaseAdapter(), SpinnerAdapter {
+
+        override fun getCount() = items.size
+        override fun getItem(position: Int) = items[position]
+        override fun getItemId(position: Int) = position.toLong()
+
+        override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+            val textView = (convertView as? TextView)
+                ?: LayoutInflater.from(context).inflate(
+                    android.R.layout.simple_spinner_item, parent, false
+                ) as TextView
+            textView.text = items[position]
+            textView.setTextColor(selectedItemColor)
+            return textView
+        }
+
+        override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
+            val textView = (convertView as? TextView)
+                ?: LayoutInflater.from(context).inflate(
+                    R.layout.item_spinner_dropdown, parent, false
+                ) as TextView
+            val text = items[position]
+            val spannable = SpannableString(text)
+            spannable.setSpan(
+                ForegroundColorSpan(Color.BLACK),
+                0, text.length,
+                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
+            textView.text = spannable
+            textView.setTextColor(Color.BLACK)
+            return textView
+        }
     }
 
     private fun startTerminalGlow() {
