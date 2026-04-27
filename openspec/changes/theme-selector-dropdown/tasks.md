@@ -99,7 +99,7 @@ Do not proceed to Phase 2 tasks until a human has verified the Phase 1 end-to-en
 - [x] 6.3 Update `themeKeyToStyleRes` so `"emerald_growth"` maps to `R.style.Theme_BasicApp_Emerald`.
   Done when: selecting "Emerald Growth" from the spinner applies a deep forest green background with vivid emerald primary and golden hour accent; `./gradlew assembleDebug` succeeds.
 
-- [ ] 6.4 Add Emerald runtime effect: growth-based color shift. When Emerald theme is active, animate `growthNumber` text color from `shoot_light` to `emerald` as the exponent increases (map exponent range [-8, 16] to 0–1 progress, interpolate using `ArgbEvaluator`). Guard with `selectedTheme == "emerald_growth"`. Update on each tick. Reset text color when switching away.
+- [x] 6.4 Add Emerald runtime effect: growth-based color shift. When Emerald theme is active, animate `growthNumber` text color from `shoot_light` to `emerald` as the exponent increases (map exponent range [-8, 16] to 0–1 progress, interpolate using `ArgbEvaluator`). Guard with `selectedTheme == "emerald_growth"`. Update on each tick. Reset text color when switching away.
   Done when: selecting Emerald theme shows the growth number starting as a light shoot green that gradually shifts toward vivid emerald as the number grows; switching away restores default text color behavior; no color shift occurs under any other theme; `./gradlew assembleDebug` succeeds.
 
 ## 7. Phase 2 — Final verification

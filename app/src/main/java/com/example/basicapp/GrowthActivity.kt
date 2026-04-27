@@ -65,6 +65,9 @@ class GrowthActivity : AppCompatActivity() {
             if (selectedTheme == "solar_flare") {
                 updateSolarIntensity()
             }
+            if (selectedTheme == "emerald_growth") {
+                updateEmeraldColorShift()
+            }
             tickCount++
             if (tickCount % SAVE_INTERVAL == 0) saveState()
             handler.postDelayed(this, TICK_MS)
@@ -116,6 +119,10 @@ class GrowthActivity : AppCompatActivity() {
 
         if (selectedTheme == "cosmic_nebula") {
             startNebulaEffects()
+        }
+
+        if (selectedTheme == "emerald_growth") {
+            updateEmeraldColorShift()
         }
 
         val themeSpinner: Spinner = findViewById(R.id.themeSpinner)
@@ -286,6 +293,14 @@ class GrowthActivity : AppCompatActivity() {
             radius = 8f + progress * 32f
         }
         numberDisplay.setShadowLayer(radius, 0f, 0f, color)
+    }
+
+    private fun updateEmeraldColorShift() {
+        val progress = ((exponent + 8).toFloat() / 24f).coerceIn(0f, 1f)
+        val shootLightColor = ContextCompat.getColor(this, R.color.shoot_light)
+        val emeraldColor = ContextCompat.getColor(this, R.color.emerald)
+        val color = android.animation.ArgbEvaluator().evaluate(progress, shootLightColor, emeraldColor) as Int
+        numberDisplay.setTextColor(color)
     }
 
     private fun startNebulaEffects() {
