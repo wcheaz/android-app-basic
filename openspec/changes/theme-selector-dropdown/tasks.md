@@ -51,7 +51,7 @@ Do not proceed to Phase 2 tasks until a human has verified the Phase 1 end-to-en
 - [x] 3.1 Add Abyssal Ocean color resources to `colors.xml`: `abyss_deep` (#FF020B14), `abyss_mid` (#FF071B2E), `abyss_surface` (#FF0C2A45), `biolum_cyan` (#FF00E5FF), `biolum_soft` (#FF0097A7), `biolum_muted` (#FF005662), `deep_coral` (#FFFF6E6E), `jellyfish_pink` (#FFCE93D8), `surface_light` (#FFB2EBF2), `surface_dim` (#FF4B7C8A), `button_abyss` (#FF0A1F33), `button_ripple` (#FF0D3B5C). Add `Theme.BasicApp.Ocean` style to `themes.xml` per the Ocean spec.
   Done when: `colors.xml` has all 12 Ocean colors and `themes.xml` has `Theme.BasicApp.Ocean` style; `./gradlew assembleDebug` succeeds.
 
-- [ ] 3.2 Create `res/drawable/biolum_orb.xml` (radial gradient oval per the Ocean THEME document) and `res/drawable/separator_line_top.xml` (1dp top border line using `biolum_muted`).
+- [x] 3.2 Create `res/drawable/biolum_orb.xml` (radial gradient oval per the Ocean THEME document) and `res/drawable/separator_line_top.xml` (1dp top border line using `biolum_muted`).
   Done when: both drawable XML files exist in `res/drawable/` and `./gradlew assembleDebug` succeeds.
 
 - [ ] 3.3 Update `themeKeyToStyleRes` so `"abyssal_ocean"` maps to `R.style.Theme_BasicApp_Ocean`.
