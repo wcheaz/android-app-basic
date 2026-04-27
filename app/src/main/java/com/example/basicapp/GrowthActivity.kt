@@ -4,7 +4,10 @@ import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.Spinner
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
@@ -87,6 +90,28 @@ class GrowthActivity : AppCompatActivity() {
 
         updateRateControls()
         numberDisplay.text = formatNumber(value, exponent)
+
+        val themeSpinner: Spinner = findViewById(R.id.themeSpinner)
+        val themeNames = resources.getStringArray(R.array.theme_names)
+        val themeKeys = resources.getStringArray(R.array.theme_keys)
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, themeNames)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        themeSpinner.adapter = adapter
+        val currentKeyIndex = themeKeys.indexOf(selectedTheme)
+        if (currentKeyIndex >= 0) {
+            themeSpinner.setSelection(currentKeyIndex)
+        }
+        themeSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: android.view.View?, position: Int, id: Long) {
+                val key = themeKeys[position]
+                if (key != selectedTheme) {
+                    selectedTheme = key
+                    saveState()
+                    recreate()
+                }
+            }
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+        }
     }
 
     override fun onResume() {
