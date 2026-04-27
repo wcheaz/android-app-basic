@@ -34,4 +34,17 @@
         <item name="android:navigationBarColor">@color/terminal_bg</item>
         <item name="android:textColor">@color/phosphor_green</item>
     </style>
+
+    <style name="Theme.BasicApp.Ocean" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/biolum_cyan</item>
+        <item name="colorPrimaryVariant">@color/biolum_soft</item>
+        <item name="colorOnPrimary">@color/abyss_deep</item>
+        <item name="colorSecondary">@color/deep_coral</item>
+        <item name="colorSecondaryVariant">@color/jellyfish_pink</item>
+        <item name="colorOnSecondary">@color/abyss_deep</item>
+        <item name="android:windowBackground">@color/abyss_deep</item>
+        <item name="android:statusBarColor">@color/abyss_deep</item>
+        <item name="android:navigationBarColor">@color/abyss_deep</item>
+        <item name="android:textColor">@color/surface_light</item>
+    </style>
 </resources>

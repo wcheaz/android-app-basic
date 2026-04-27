@@ -28,4 +28,17 @@
     <color name="green_muted">#FF4D804D</color>
     <color name="button_bg">#FF0D1A0D</color>
     <color name="button_border">#FF1A3D1A</color>
+
+    <color name="abyss_deep">#FF020B14</color>
+    <color name="abyss_mid">#FF071B2E</color>
+    <color name="abyss_surface">#FF0C2A45</color>
+    <color name="biolum_cyan">#FF00E5FF</color>
+    <color name="biolum_soft">#FF0097A7</color>
+    <color name="biolum_muted">#FF005662</color>
+    <color name="deep_coral">#FFFF6E6E</color>
+    <color name="jellyfish_pink">#FFCE93D8</color>
+    <color name="surface_light">#FFB2EBF2</color>
+    <color name="surface_dim">#FF4B7C8A</color>
+    <color name="button_abyss">#FF0A1F33</color>
+    <color name="button_ripple">#FF0D3B5C</color>
 </resources>
