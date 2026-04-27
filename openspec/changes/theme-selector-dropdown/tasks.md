@@ -104,7 +104,7 @@ Do not proceed to Phase 2 tasks until a human has verified the Phase 1 end-to-en
 
 ## 7. Phase 2 — Final verification
 
-- [ ] 7.1 Verify all seven themes work end-to-end. For each theme in the spinner (Default, Minimalist Noir, Terminal / Phosphor, Abyssal Ocean, Solar Flare, Cosmic Nebula, Emerald Growth): select it, confirm the theme applies visually, confirm the spinner reflects the selection, switch to another theme, confirm the switch works, kill and relaunch the app, confirm the last-selected theme persists. Confirm growth state is preserved across all switches. Confirm no runtime effects leak between themes (no leftover particles, animators, or shadow effects from a previous theme).
+- [x] 7.1 Verify all seven themes work end-to-end. For each theme in the spinner (Default, Minimalist Noir, Terminal / Phosphor, Abyssal Ocean, Solar Flare, Cosmic Nebula, Emerald Growth): select it, confirm the theme applies visually, confirm the spinner reflects the selection, switch to another theme, confirm the switch works, kill and relaunch the app, confirm the last-selected theme persists. Confirm growth state is preserved across all switches. Confirm no runtime effects leak between themes (no leftover particles, animators, or shadow effects from a previous theme).
   Done when: all 7 themes pass visual and functional checks on device/emulator; no crashes; no runtime effect leakage between themes; persistence works for all 7 themes; growth state is preserved across all switches.
 
 ---
