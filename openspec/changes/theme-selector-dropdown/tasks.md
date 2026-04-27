@@ -1,6 +1,6 @@
 ## 1. Phase 1 — Theme-switching mechanism and Minimalist Noir
 
-- [ ] 1.1 Add Minimalist Noir color resources to `colors.xml`. Add all 10 Noir colors: `true_black` (#FF000000), `carbon` (#FF121212), `carbon_light` (#FF1E1E1E), `pure_white` (#FFFFFFFF), `silver` (#FFB0B0B0), `ghost_gray` (#FF666666), `signal_red` (#FFFF1744), `signal_dim` (#FFB71C1C), `hairline` (#FF1C1C1C), `mid_gray` (#FF888888).
+- [x] 1.1 Add Minimalist Noir color resources to `colors.xml`. Add all 10 Noir colors: `true_black` (#FF000000), `carbon` (#FF121212), `carbon_light` (#FF1E1E1E), `pure_white` (#FFFFFFFF), `silver` (#FFB0B0B0), `ghost_gray` (#FF666666), `signal_red` (#FFFF1744), `signal_dim` (#FFB71C1C), `hairline` (#FF1C1C1C), `mid_gray` (#FF888888).
   Done when: `colors.xml` contains all 10 Noir color entries and `./gradlew assembleDebug` succeeds.
 
 - [ ] 1.2 Add `Theme.BasicApp.Noir` style to `themes.xml` inheriting from `Theme.MaterialComponents.DayNight.NoActionBar` with all attributes per the Minimalist Noir spec: `colorPrimary` → `pure_white`, `colorPrimaryVariant` → `silver`, `colorOnPrimary` → `true_black`, `colorSecondary` → `signal_red`, `colorSecondaryVariant` → `signal_dim`, `colorOnSecondary` → `pure_white`, `android:windowBackground` → `true_black`, `android:statusBarColor` → `true_black`, `android:navigationBarColor` → `true_black`, `android:textColor` → `pure_white`.
