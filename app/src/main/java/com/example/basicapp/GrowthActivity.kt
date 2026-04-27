@@ -169,6 +169,7 @@ class GrowthActivity : AppCompatActivity() {
         "minimalist_noir" -> R.style.Theme_BasicApp_Noir
         "terminal_phosphor" -> R.style.Theme_BasicApp_Terminal
         "abyssal_ocean" -> R.style.Theme_BasicApp_Ocean
+        "solar_flare" -> R.style.Theme_BasicApp_Solar
         else -> R.style.Theme_BasicApp
     }
 
