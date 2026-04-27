@@ -151,6 +151,7 @@ class GrowthActivity : AppCompatActivity() {
     private fun themeKeyToStyleRes(key: String): Int = when (key) {
         "default" -> R.style.Theme_BasicApp
         "minimalist_noir" -> R.style.Theme_BasicApp_Noir
+        "terminal_phosphor" -> R.style.Theme_BasicApp_Terminal
         else -> R.style.Theme_BasicApp
     }
 
