@@ -6,7 +6,7 @@
 - [x] 1.2 Add `Theme.BasicApp.Noir` style to `themes.xml` inheriting from `Theme.MaterialComponents.DayNight.NoActionBar` with all attributes per the Minimalist Noir spec: `colorPrimary` → `pure_white`, `colorPrimaryVariant` → `silver`, `colorOnPrimary` → `true_black`, `colorSecondary` → `signal_red`, `colorSecondaryVariant` → `signal_dim`, `colorOnSecondary` → `pure_white`, `android:windowBackground` → `true_black`, `android:statusBarColor` → `true_black`, `android:navigationBarColor` → `true_black`, `android:textColor` → `pure_white`.
   Done when: `themes.xml` contains `Theme.BasicApp.Noir` with all 10 attribute mappings and `./gradlew assembleDebug` succeeds.
 
-- [ ] 1.3 Create `res/drawable/hairline_top.xml` — a layer-list drawable with a 1dp top border in `@color/hairline`, per the Minimalist Noir THEME document.
+- [x] 1.3 Create `res/drawable/hairline_top.xml` — a layer-list drawable with a 1dp top border in `@color/hairline`, per the Minimalist Noir THEME document.
   Done when: `res/drawable/hairline_top.xml` exists, references `@color/hairline`, and `./gradlew assembleDebug` succeeds.
 
 - [ ] 1.4 Add string array resources to `strings.xml` (or a new `arrays.xml`): `theme_names` with 7 items (Default, Minimalist Noir, Terminal / Phosphor, Abyssal Ocean, Solar Flare, Cosmic Nebula, Emerald Growth) and `theme_keys` with 7 matching items (default, minimalist_noir, terminal_phosphor, abyssal_ocean, solar_flare, cosmic_nebula, emerald_growth). Both arrays MUST have the same length and same order.
