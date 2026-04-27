@@ -54,4 +54,18 @@
     <color name="ash_gray">#FF8D7B6A</color>
     <color name="button_ember">#FF1A1005</color>
     <color name="button_flare">#FF3D2200</color>
+
+    <color name="deep_space">#FF0A0612</color>
+    <color name="nebula_dark">#FF160D24</color>
+    <color name="cosmos_surface">#FF1E1030</color>
+    <color name="nebula_violet">#FFB388FF</color>
+    <color name="starlight">#FFE1BEE7</color>
+    <color name="stellar_white">#FFF3E5F5</color>
+    <color name="void_purple">#FF7C4DFF</color>
+    <color name="nebula_rose">#FFFF80AB</color>
+    <color name="plasma_blue">#FF448AFF</color>
+    <color name="dust_light">#FFD1C4E9</color>
+    <color name="dust_dim">#FF6A5B7A</color>
+    <color name="button_cosmos">#FF120A1E</color>
+    <color name="star_pinpoint">#FFFFFFFF</color>
 </resources>

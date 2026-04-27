@@ -60,4 +60,17 @@
         <item name="android:navigationBarColor">@color/void_black</item>
         <item name="android:textColor">@color/heat_haze</item>
     </style>
+
+    <style name="Theme.BasicApp.Nebula" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/nebula_violet</item>
+        <item name="colorPrimaryVariant">@color/void_purple</item>
+        <item name="colorOnPrimary">@color/deep_space</item>
+        <item name="colorSecondary">@color/nebula_rose</item>
+        <item name="colorSecondaryVariant">@color/plasma_blue</item>
+        <item name="colorOnSecondary">@color/deep_space</item>
+        <item name="android:windowBackground">@color/deep_space</item>
+        <item name="android:statusBarColor">@color/deep_space</item>
+        <item name="android:navigationBarColor">@color/deep_space</item>
+        <item name="android:textColor">@color/dust_light</item>
+    </style>
 </resources>
