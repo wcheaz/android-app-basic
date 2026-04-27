@@ -68,4 +68,18 @@
     <color name="dust_dim">#FF6A5B7A</color>
     <color name="button_cosmos">#FF120A1E</color>
     <color name="star_pinpoint">#FFFFFFFF</color>
+
+    <color name="forest_floor">#FF0A120A</color>
+    <color name="canopy_shadow">#FF0F1F0F</color>
+    <color name="moss_surface">#FF162816</color>
+    <color name="emerald">#FF00E676</color>
+    <color name="fern_green">#FF66BB6A</color>
+    <color name="shoot_light">#FFA5D6A7</color>
+    <color name="deep_forest">#FF1B5E20</color>
+    <color name="golden_hour">#FFFFD740</color>
+    <color name="rich_earth">#FF8D6E63</color>
+    <color name="dew_light">#FFC8E6C9</color>
+    <color name="bark_gray">#FF5D7A5D</color>
+    <color name="button_moss">#FF0E1A0E</color>
+    <color name="button_sprout">#FF1B3A1B</color>
 </resources>

@@ -90,7 +90,7 @@ Do not proceed to Phase 2 tasks until a human has verified the Phase 1 end-to-en
 
 ## 6. Phase 2 — Emerald Growth theme
 
-- [ ] 6.1 Add Emerald Growth color resources to `colors.xml`: `forest_floor` (#FF0A120A), `canopy_shadow` (#FF0F1F0F), `moss_surface` (#FF162816), `emerald` (#FF00E676), `fern_green` (#FF66BB6A), `shoot_light` (#FFA5D6A7), `deep_forest` (#FF1B5E20), `golden_hour` (#FFFFD740), `rich_earth` (#FF8D6E63), `dew_light` (#FFC8E6C9), `bark_gray` (#FF5D7A5D), `button_moss` (#FF0E1A0E), `button_sprout` (#FF1B3A1B). Add `Theme.BasicApp.Emerald` style to `themes.xml` per the Emerald spec.
+- [x] 6.1 Add Emerald Growth color resources to `colors.xml`: `forest_floor` (#FF0A120A), `canopy_shadow` (#FF0F1F0F), `moss_surface` (#FF162816), `emerald` (#FF00E676), `fern_green` (#FF66BB6A), `shoot_light` (#FFA5D6A7), `deep_forest` (#FF1B5E20), `golden_hour` (#FFFFD740), `rich_earth` (#FF8D6E63), `dew_light` (#FFC8E6C9), `bark_gray` (#FF5D7A5D), `button_moss` (#FF0E1A0E), `button_sprout` (#FF1B3A1B). Add `Theme.BasicApp.Emerald` style to `themes.xml` per the Emerald spec.
   Done when: `colors.xml` has all 13 Emerald colors and `themes.xml` has `Theme.BasicApp.Emerald` style; `./gradlew assembleDebug` succeeds.
 
 - [ ] 6.2 Create `res/drawable/bg_forest.xml` (linear gradient per the Emerald THEME document) and `res/drawable/leaf_shape.xml` (vector drawable per the Emerald THEME document).

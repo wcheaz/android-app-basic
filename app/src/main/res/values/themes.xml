@@ -73,4 +73,17 @@
         <item name="android:navigationBarColor">@color/deep_space</item>
         <item name="android:textColor">@color/dust_light</item>
     </style>
+
+    <style name="Theme.BasicApp.Emerald" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/emerald</item>
+        <item name="colorPrimaryVariant">@color/fern_green</item>
+        <item name="colorOnPrimary">@color/forest_floor</item>
+        <item name="colorSecondary">@color/golden_hour</item>
+        <item name="colorSecondaryVariant">@color/rich_earth</item>
+        <item name="colorOnSecondary">@color/forest_floor</item>
+        <item name="android:windowBackground">@color/forest_floor</item>
+        <item name="android:statusBarColor">@color/forest_floor</item>
+        <item name="android:navigationBarColor">@color/forest_floor</item>
+        <item name="android:textColor">@color/dew_light</item>
+    </style>
 </resources>
