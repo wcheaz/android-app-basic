@@ -85,7 +85,7 @@ Do not proceed to Phase 2 tasks until a human has verified the Phase 1 end-to-en
 - [x] 5.3 Update `themeKeyToStyleRes` so `"cosmic_nebula"` maps to `R.style.Theme_BasicApp_Nebula`.
   Done when: selecting "Cosmic Nebula" from the spinner applies a deep purple-black background with violet primary and rose accent; `./gradlew assembleDebug` succeeds.
 
-- [ ] 5.4 Add Nebula runtime effects: (a) twinkling star field — create 40 small `View` dots (1–3dp, white, random position, random alpha 0–0.6) that fade between random alpha values over 2–6 second durations with `AccelerateDecelerateInterpolator`, recycling endlessly; (b) slow nebula color shift — animate the root layout background color between `deep_space` and `nebula_dark` over 15 seconds, infinite loop. Guard both with `selectedTheme == "cosmic_nebula"`. Cancel and clean up all animators and views on theme switch or `onPause()`.
+- [x] 5.4 Add Nebula runtime effects: (a) twinkling star field — create 40 small `View` dots (1–3dp, white, random position, random alpha 0–0.6) that fade between random alpha values over 2–6 second durations with `AccelerateDecelerateInterpolator`, recycling endlessly; (b) slow nebula color shift — animate the root layout background color between `deep_space` and `nebula_dark` over 15 seconds, infinite loop. Guard both with `selectedTheme == "cosmic_nebula"`. Cancel and clean up all animators and views on theme switch or `onPause()`.
   Done when: selecting Nebula theme shows twinkling white dots across the screen and a subtle purple background pulse; switching away removes all star views and stops the color shift animator; no star views or animators persist under any other theme; `./gradlew assembleDebug` succeeds.
 
 ## 6. Phase 2 — Emerald Growth theme

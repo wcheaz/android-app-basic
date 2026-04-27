@@ -50,6 +50,9 @@ class GrowthActivity : AppCompatActivity() {
     private var glowAnimator: android.animation.ValueAnimator? = null
     private val particleViews = mutableListOf<android.view.View>()
     private val particleAnimators = mutableListOf<android.animation.ValueAnimator>()
+    private val starViews = mutableListOf<android.view.View>()
+    private val starAnimators = mutableListOf<android.animation.ValueAnimator>()
+    private var nebulaColorAnimator: android.animation.ValueAnimator? = null
 
     private val tick = object : Runnable {
         override fun run() {
@@ -111,6 +114,10 @@ class GrowthActivity : AppCompatActivity() {
             updateSolarIntensity()
         }
 
+        if (selectedTheme == "cosmic_nebula") {
+            startNebulaEffects()
+        }
+
         val themeSpinner: Spinner = findViewById(R.id.themeSpinner)
         val themeNames = resources.getStringArray(R.array.theme_names)
         val themeKeys = resources.getStringArray(R.array.theme_keys)
@@ -145,6 +152,7 @@ class GrowthActivity : AppCompatActivity() {
         glowAnimator?.cancel()
         glowAnimator = null
         cleanupParticles()
+        cleanupNebulaEffects()
         numberDisplay.setShadowLayer(0f, 0f, 0f, 0)
         saveState()
     }
@@ -277,6 +285,89 @@ class GrowthActivity : AppCompatActivity() {
             radius = 8f + progress * 32f
         }
         numberDisplay.setShadowLayer(radius, 0f, 0f, color)
+    }
+
+    private fun startNebulaEffects() {
+        startNebulaStarField()
+        startNebulaColorShift()
+    }
+
+    private fun startNebulaStarField() {
+        val content = findViewById<android.view.ViewGroup>(android.R.id.content)
+        val density = resources.displayMetrics.density
+        val screenWidth = resources.displayMetrics.widthPixels
+        val screenHeight = resources.displayMetrics.heightPixels
+        val random = java.util.Random()
+
+        for (i in 0 until 40) {
+            val star = android.view.View(this)
+            val sizeDp = 1 + random.nextInt(3)
+            val sizePx = (sizeDp * density).toInt()
+            star.layoutParams = android.view.ViewGroup.LayoutParams(sizePx, sizePx)
+            star.background = ContextCompat.getDrawable(this, R.drawable.star_dot)
+            val initialAlpha = random.nextFloat() * 0.6f
+            star.alpha = initialAlpha
+            val w = (screenWidth - sizePx).coerceAtLeast(1)
+            val h = (screenHeight - sizePx).coerceAtLeast(1)
+            star.x = random.nextInt(w).toFloat()
+            star.y = random.nextInt(h).toFloat()
+            content.addView(star)
+            starViews.add(star)
+            animateStarTwinkle(star, random)
+        }
+    }
+
+    private fun animateStarTwinkle(star: android.view.View, random: java.util.Random) {
+        val fromAlpha = star.alpha
+        val toAlpha = random.nextFloat() * 0.6f
+        val durationMs = 2000L + random.nextInt(4001)
+        val animator = android.animation.ValueAnimator.ofFloat(fromAlpha, toAlpha)
+        animator.duration = durationMs
+        animator.interpolator = AccelerateDecelerateInterpolator()
+        animator.addUpdateListener { anim ->
+            star.alpha = anim.animatedValue as Float
+        }
+        animator.addListener(object : android.animation.AnimatorListenerAdapter() {
+            override fun onAnimationEnd(animation: android.animation.Animator) {
+                if (star.parent == null) return
+                animateStarTwinkle(star, random)
+            }
+        })
+        animator.start()
+        starAnimators.add(animator)
+    }
+
+    private fun startNebulaColorShift() {
+        val content = findViewById<android.view.ViewGroup>(android.R.id.content)
+        val deepSpaceColor = ContextCompat.getColor(this, R.color.deep_space)
+        val nebulaDarkColor = ContextCompat.getColor(this, R.color.nebula_dark)
+        val argbEvaluator = android.animation.ArgbEvaluator()
+        nebulaColorAnimator = android.animation.ValueAnimator.ofFloat(0f, 1f).apply {
+            duration = 15000L
+            interpolator = AccelerateDecelerateInterpolator()
+            repeatCount = android.animation.ValueAnimator.INFINITE
+            repeatMode = android.animation.ValueAnimator.REVERSE
+            addUpdateListener { anim ->
+                val fraction = anim.animatedValue as Float
+                val color = argbEvaluator.evaluate(fraction, deepSpaceColor, nebulaDarkColor) as Int
+                content.setBackgroundColor(color)
+            }
+            start()
+        }
+    }
+
+    private fun cleanupNebulaEffects() {
+        nebulaColorAnimator?.cancel()
+        nebulaColorAnimator = null
+        for (animator in starAnimators) {
+            animator.removeAllListeners()
+            animator.cancel()
+        }
+        starAnimators.clear()
+        for (view in starViews) {
+            (view.parent as? android.view.ViewGroup)?.removeView(view)
+        }
+        starViews.clear()
     }
 
     private fun formatNumber(v: Long, exp: Int): String {
