@@ -41,4 +41,17 @@
     <color name="surface_dim">#FF4B7C8A</color>
     <color name="button_abyss">#FF0A1F33</color>
     <color name="button_ripple">#FF0D3B5C</color>
+
+    <color name="void_black">#FF080604</color>
+    <color name="ember_surface">#FF1A120A</color>
+    <color name="ember_light">#FF2D1F10</color>
+    <color name="solar_orange">#FFFF8F00</color>
+    <color name="flare_yellow">#FFFFD54F</color>
+    <color name="flare_white">#FFFFF8E1</color>
+    <color name="ember_glow">#FFBF6000</color>
+    <color name="magma_red">#FFFF3D00</color>
+    <color name="heat_haze">#FFFFCC80</color>
+    <color name="ash_gray">#FF8D7B6A</color>
+    <color name="button_ember">#FF1A1005</color>
+    <color name="button_flare">#FF3D2200</color>
 </resources>

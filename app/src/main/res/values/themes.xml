@@ -47,4 +47,17 @@
         <item name="android:navigationBarColor">@color/abyss_deep</item>
         <item name="android:textColor">@color/surface_light</item>
     </style>
+
+    <style name="Theme.BasicApp.Solar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/solar_orange</item>
+        <item name="colorPrimaryVariant">@color/ember_glow</item>
+        <item name="colorOnPrimary">@color/void_black</item>
+        <item name="colorSecondary">@color/magma_red</item>
+        <item name="colorSecondaryVariant">@color/flare_yellow</item>
+        <item name="colorOnSecondary">@color/flare_white</item>
+        <item name="android:windowBackground">@color/void_black</item>
+        <item name="android:statusBarColor">@color/void_black</item>
+        <item name="android:navigationBarColor">@color/void_black</item>
+        <item name="android:textColor">@color/heat_haze</item>
+    </style>
 </resources>
