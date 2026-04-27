@@ -96,7 +96,7 @@ Do not proceed to Phase 2 tasks until a human has verified the Phase 1 end-to-en
 - [x] 6.2 Create `res/drawable/bg_forest.xml` (linear gradient per the Emerald THEME document) and `res/drawable/leaf_shape.xml` (vector drawable per the Emerald THEME document).
   Done when: both drawable XML files exist in `res/drawable/` and `./gradlew assembleDebug` succeeds.
 
-- [ ] 6.3 Update `themeKeyToStyleRes` so `"emerald_growth"` maps to `R.style.Theme_BasicApp_Emerald`.
+- [x] 6.3 Update `themeKeyToStyleRes` so `"emerald_growth"` maps to `R.style.Theme_BasicApp_Emerald`.
   Done when: selecting "Emerald Growth" from the spinner applies a deep forest green background with vivid emerald primary and golden hour accent; `./gradlew assembleDebug` succeeds.
 
 - [ ] 6.4 Add Emerald runtime effect: growth-based color shift. When Emerald theme is active, animate `growthNumber` text color from `shoot_light` to `emerald` as the exponent increases (map exponent range [-8, 16] to 0–1 progress, interpolate using `ArgbEvaluator`). Guard with `selectedTheme == "emerald_growth"`. Update on each tick. Reset text color when switching away.
