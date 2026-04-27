@@ -178,6 +178,7 @@ class GrowthActivity : AppCompatActivity() {
         "terminal_phosphor" -> R.style.Theme_BasicApp_Terminal
         "abyssal_ocean" -> R.style.Theme_BasicApp_Ocean
         "solar_flare" -> R.style.Theme_BasicApp_Solar
+        "cosmic_nebula" -> R.style.Theme_BasicApp_Nebula
         else -> R.style.Theme_BasicApp
     }
 
